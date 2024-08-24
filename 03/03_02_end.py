@@ -18,3 +18,9 @@ def cosine_similarity(vec_a, vec_b):
 print(cosine_similarity(word_to_vector["plant"], word_to_vector["grow"]))
 print(cosine_similarity(word_to_vector["minute"], word_to_vector["plant"]))
 print(cosine_similarity(word_to_vector["plant"], word_to_vector["tree"]))
+
+def similar_words(word="tree", top_k=10):
+    return sorted(word_to_vector.keys(), 
+                  key=lambda x: -cosine_similarity(word_to_vector[x],word_to_vector[word]))[:top_k]
+    
+print(similar_words())

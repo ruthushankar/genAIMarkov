@@ -2,7 +2,7 @@
 from string import punctuation
 from collections import Counter
 from collections import defaultdict
-
+#  Naive Bayes. Labels - pos,neg . 
 post_comments_with_labels = [
     ("I love this post.", "pos"),
     ("This post is your best work.", "pos"),
