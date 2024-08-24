@@ -45,13 +45,18 @@ class NaiveBayesClassifier:
         for token in tokens:
             pos.append(self.pos_counter[token]/self.sample_count)
             neg.append(self.neg_counter[token]/self.sample_count)
+        
+        if sum(pos)> sum(neg):
+            return "pos"
+        elif sum(neg)> sum(pos):
+            return "neg"
+        else:
+            return "neutral"
             
         
-        
+    
 
-
-
-cl = NaiveBayesClassifier(post_comments_with_labels)
+#cl = NaiveBayesClassifier(post_comments_with_labels)
 
 show_expected_result = False
 show_hints = False
@@ -59,3 +64,7 @@ show_hints = False
 def get_sentiment(text):
     cl = NaiveBayesClassifier(post_comments_with_labels)
     return cl.classify(text)
+
+#p= NaiveBayesClassifier("love this post")
+anss=get_sentiment("Love this post")
+print(anss)
